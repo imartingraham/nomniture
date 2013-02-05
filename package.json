@@ -1,0 +1,18 @@
+{
+  "name": "Nomniture",
+  "description": "Omniture API module",
+  "version": "0.0.1",
+  "author": {
+    "name": "Ian Graham",
+    "email": "imartingraham@gmail.com",
+    "url": "http://github.com/imartingraham"
+  },
+  "main": "./index",
+  "directories": {
+    "lib": "./lib"
+  },
+  "dependencies": {
+		"nodeunit": "latest"
+		
+	}
+}
