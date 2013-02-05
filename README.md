@@ -1,6 +1,6 @@
 # nomniture
 
-This is a Node.js port of [ROmniture](https://github.com/msukmanowsky/ROmniture) by @msukmanowsky. 
+This is a Node.js port of [ROmniture](https://github.com/msukmanowsky/ROmniture) by [msukmanowsky](https://github.com/msukmanowsky). 
 
 ## what is it
 nomniture is a minimal Node.js module wrapper for [Omniture's REST API](http://developer.omniture.com).
