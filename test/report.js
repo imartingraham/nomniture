@@ -1,15 +1,14 @@
 var Report = require('../lib/report'),
 		creds = require('./test-credentials');
 
-
 module.exports.testGoodReport = function(test){
 	var r = new Report(creds.username, creds.sharedSecret, 'sanJose', {log: true}),
-			reportData =	{	
-				reportDescription: { 
+			reportData =	{
+				reportDescription: {
 					reportSuiteID: "imprvdirectfaucet",
-					dateFrom:"2012-01-01",	
+					dateFrom:"2012-01-01",
 					dateTo:"2012-12-31",
-					metrics:[{ id: "pageviews" }],	
+					metrics:[{ id: "pageviews" }],
 					"validate":"true"
 				}
 			};
@@ -27,12 +26,12 @@ module.exports.testGoodReport = function(test){
 	
 module.exports.testBadReport = function(test){
 	var r = new Report(creds.username, creds.sharedSecret, 'sanJose', {log: true}),
-			reportData =	{	
-					reportDescription: { 
+			reportData =	{
+					reportDescription: {
 						reportSuiteID: "imprvdirectfaucet",
-						dateFrom:"2012-01-01",	
+						dateFrom:"2012-01-01",
 						dateTo:"2012-12-31",
-						metrics:[{ id: "pageviews" }],	
+						metrics:[{ id: "pageviews" }],
 						validate:"true"
 					}
 				};
@@ -49,5 +48,4 @@ module.exports.testBadReport = function(test){
 		}
 		test.done();
 	});
-			
 }

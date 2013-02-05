@@ -4,18 +4,15 @@ var Client = require("../lib/client"),
 
 module.exports.testSimpleRequest = function(test){
 	var c = new Client(creds.username, creds.sharedSecret, 'sanJose', {log: true});
-	
 	c.request("Company.GetReportSuites", [], function(err,data){
 		test.expect(1);
-
 		if(err){
 			test.ok(false, err.message);
 		}else{
-			test.ok(true, "Omniture request successful");			
+			test.ok(true, "Omniture request successful");
 		}
 		test.done();
 	});
-	
 }
 
 module.exports.testBadCredentials = function(test){
@@ -65,7 +62,7 @@ module.exports.testReturnResponseBodyOnParseError = function(test){
 			}catch(e){
 				// invalid json response
 				test.ok(true, data + " is not a JSON string");
-			}			
+			}
 		}
 		test.done();
 	})

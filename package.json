@@ -1,7 +1,7 @@
 {
   "name": "nomniture",
   "description": "Omniture API module",
-  "version": "0.1",
+  "version": "0.1.1",
   "author": {
     "name": "Ian Graham",
     "email": "imartingraham@gmail.com",
