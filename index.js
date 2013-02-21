@@ -3,4 +3,5 @@
 Nomniture = {};
 Nomniture.Client = require('./lib/client');
 Nomniture.Report = require('./lib/report');
+Nomniture.Saint = require('./lib/saint');
 module.exports = Nomniture;
