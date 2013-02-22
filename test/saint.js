@@ -3,7 +3,7 @@ var Saint = require('../lib/saint'),
 		s = new Saint(creds.username, creds.sharedSecret, 'sanJose', {log: true}),
 		testJobId = '';
 
-
+/*
 module.exports.testGetJob = function(test){
 
 	s.getJob(testExportData(), function(err, data){
@@ -121,7 +121,7 @@ module.exports.testImportCreateJob = function(test){
 		}
 		test.done();
 	});
-};
+}
 
 module.exports.testBadImportCreateJob = function(test){
 	var jobDescription = testImportCreateData();
@@ -209,7 +209,7 @@ module.exports.testImportCommitJob = function(test){
 		test.done();
 
 	});
-};
+}
 
 module.exports.testBadImportCommitJob = function(test){
 	var badJobId = testJobId + '123';
@@ -226,6 +226,45 @@ module.exports.testBadImportCommitJob = function(test){
 		}
 	});
 }
+*/
+module.exports.testImportJob = function(test){
+	var jobDescription = testImportCreateData(),
+			jobData = testImportData();
+
+
+	
+	s.importJob(jobDescription, jobData, function(err, data){
+		test.expect(1);
+		if(err){
+			test.ok(false, err.message);
+		}else if(JSON.parse(data).toLowerCase() == 'success'){
+			test.ok(true, 'Import Job Complete: '+ data);
+		}
+		test.done();
+	});
+
+}
+
+module.exports.testBadImportJob = function(test){
+	var jobDescription = testImportCreateData(),
+			jobData = testImportData();
+
+	jobDescription.relation_id = null;
+	
+	s.importJob(jobDescription, jobData, function(err, data){
+		test.expect(1);
+
+		if(err){
+			test.ok(true, err.message);
+		}else{
+			test.ok(false, 'Import Job Complete: '+ data);
+		}
+		s.logger("info", "Test was supposed to fail");
+		test.done();
+	});
+
+}
+
 
 testImportCreateData = function(){
 	data = {
