@@ -2,7 +2,7 @@ var Report = require('../lib/report'),
 		creds = require('./test-credentials');
 
 module.exports.testGoodReport = function(test){
-	var r = new Report(creds.username, creds.sharedSecret, 'sanJose', {log: true}),
+	var r = new Report(creds.username, creds.sharedSecret, 'sanJose', {log: false}),
 			reportData =	{
 				reportDescription: {
 					reportSuiteID: "imprvdirectfaucet",
@@ -25,7 +25,7 @@ module.exports.testGoodReport = function(test){
 }
 	
 module.exports.testBadReport = function(test){
-	var r = new Report(creds.username, creds.sharedSecret, 'sanJose', {log: true}),
+	var r = new Report(creds.username, creds.sharedSecret, 'sanJose', {log: false}),
 			reportData =	{
 					reportDescription: {
 						reportSuiteID: "imprvdirectfaucet",

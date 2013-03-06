@@ -3,7 +3,7 @@ var Client = require("../lib/client"),
 
 
 module.exports.testSimpleRequest = function(test){
-	var c = new Client(creds.username, creds.sharedSecret, 'sanJose', {log: true});
+	var c = new Client(creds.username, creds.sharedSecret, 'sanJose', {log: false});
 	c.request("Company.GetReportSuites", [], function(err,data){
 		test.expect(1);
 		if(err){
@@ -16,7 +16,7 @@ module.exports.testSimpleRequest = function(test){
 }
 
 module.exports.testBadCredentials = function(test){
-	var c = new Client(creds.username, creds.sharedSecret + '123', 'sanJose', {log: true});
+	var c = new Client(creds.username, creds.sharedSecret + '123', 'sanJose', {log: false});
 	c.request("Company.GetTokenCount",[], function(err,data){
 		test.expect(1);
 		if(err){
@@ -29,7 +29,7 @@ module.exports.testBadCredentials = function(test){
 }
 
 module.exports.testIncorrectDataInRequest = function(test){
-	var c = new Client(creds.username, creds.sharedSecret, 'sanJose', {log: true}),
+	var c = new Client(creds.username, creds.sharedSecret, 'sanJose', {log: false}),
 			requestData = {
 				"rsid_list":[creds.reportSuiteId + "12"]
 			}
@@ -46,7 +46,7 @@ module.exports.testIncorrectDataInRequest = function(test){
 }
 
 module.exports.testReturnResponseBodyOnParseError = function(test){
-	var c = new Client(creds.username, creds.sharedSecret, 'sanJose', {log: true});
+	var c = new Client(creds.username, creds.sharedSecret, 'sanJose', {log: false});
 	c.request("Company.GetTokenCount",[], function(err,data){
 		test.expect(1);
 		if(err){
