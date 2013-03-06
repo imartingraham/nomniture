@@ -3,7 +3,7 @@ var Saint = require('../lib/saint'),
 		s = new Saint(creds.username, creds.sharedSecret, 'sanJose', {log: true}),
 		testJobId = '';
 
-/*
+
 module.exports.testGetJob = function(test){
 
 	s.getJob(testExportData(), function(err, data){
@@ -226,7 +226,7 @@ module.exports.testBadImportCommitJob = function(test){
 		}
 	});
 }
-*/
+
 module.exports.testImportJob = function(test){
 	var jobDescription = testImportCreateData(),
 			jobData = testImportData();
