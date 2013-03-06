@@ -1,7 +1,11 @@
 {
   "name": "nomniture",
   "description": "Omniture API module",
-  "version": "0.3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imartingraham/nomniture.git"
+  },
+  "version": "0.3.3",
   "author": {
     "name": "Ian Graham",
     "email": "imartingraham@gmail.com",
@@ -11,9 +15,19 @@
   "directories": {
     "lib": "./lib"
   },
+  "keywords": [
+    "omniture",
+    "site catalyst",
+    "test and target"
+  ],
   "dependencies": {
 		"nodeunit": "latest",
 		"underscore" : "latest",
 		"xml2json" : "latest"
-	}
+	},
+  "bundledDependencies": [
+    "nodeunit",
+    "underscore",
+    "xml2json"
+  ]
 }
