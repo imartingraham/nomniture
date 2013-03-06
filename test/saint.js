@@ -1,6 +1,6 @@
 var Saint = require('../lib/saint'),
 		creds = require('./test-credentials'),
-		s = new Saint(creds.username, creds.sharedSecret, 'sanJose', {log: true}),
+		s = new Saint(creds.username, creds.sharedSecret, 'sanJose', {log: false}),
 		testJobId = '';
 
 
@@ -175,25 +175,20 @@ module.exports.testBadImportPopulateJob = function(test){
 	while(importData.length){
 		populateData.push(importData.splice(0,100));
 	}
-	populateData.forEach(function(item, index){
-		var reportData = {
-			//job_id: testJobId, 
-			page: (index + 1),
-			rows: item
+	var reportData = {
+		//job_id: testJobId, 
+		page: 1,
+		rows: populateData[0]
+	}
+	s.importPopulateJob(reportData, function(err, data){
+		test.expect(1);
+		if(err){
+			test.ok(true, err.message);
+			s.logger("info", "This test was supposed to fail");
+		}else{
+			test.ok(false, "All data populated, this test was supposed to fail");
 		}
-		s.importPopulateJob(reportData, function(err, data){
-			if(err){
-				test.expect(1);
-				test.ok(true, err.message);
-				s.logger("info", "This test was supposed to fail");
-			}else{
-				test.expect(1);
-				test.ok(false, "All data populated, this test was supposed to fail");
-			}
-			if(index == populateData.length - 1){
-				test.done();
-			}
-		});
+		test.done();
 	});
 }
 
