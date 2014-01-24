@@ -5,7 +5,7 @@ module.exports.testGoodReport = function(test){
 	var r = new Report(creds.username, creds.sharedSecret, 'sanJose', {log: false}),
 			reportData =	{
 				reportDescription: {
-					reportSuiteID: "imprvdirectfaucet",
+					reportSuiteID: creds.reportSuiteId,
 					dateFrom:"2012-01-01",
 					dateTo:"2012-12-31",
 					metrics:[{ id: "pageviews" }],
@@ -28,7 +28,7 @@ module.exports.testBadReport = function(test){
 	var r = new Report(creds.username, creds.sharedSecret, 'sanJose', {log: false}),
 			reportData =	{
 					reportDescription: {
-						reportSuiteID: "imprvdirectfaucet",
+						reportSuiteID: creds.reportSuiteId,
 						dateFrom:"2012-01-01",
 						dateTo:"2012-12-31",
 						metrics:[{ id: "pageviews" }],

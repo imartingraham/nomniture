@@ -288,7 +288,7 @@ testExportData = function(){
     date_filter_row_end_date: "Feb 2013",
     email_address: creds.emailAddress,
     relation_id: 57,
-    report_suite_array: ["imprvdirectfaucet"],
+    report_suite_array: [creds.reportSuiteId],
     select_all_rows: 1
 	};
 	return data;
