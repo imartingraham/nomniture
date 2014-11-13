@@ -1,8 +1,8 @@
 var Report = require('../lib/report'),
 		creds = require('./test-credentials');
 
-module.exports.testGoodReport = function(test){
-	var r = new Report(creds.username, creds.sharedSecret, 'sanJose', {log: false}),
+module.exports.testGoodReport13 = function(test){
+	var r = new Report(creds.username, creds.sharedSecret, 'sanJose', {log: false, version: 1.3}),
 			reportData =	{
 				reportDescription: {
 					reportSuiteID: creds.reportSuiteId,
@@ -23,9 +23,9 @@ module.exports.testGoodReport = function(test){
 		test.done();
 	});
 }
-	
-module.exports.testBadReport = function(test){
-	var r = new Report(creds.username, creds.sharedSecret, 'sanJose', {log: false}),
+
+module.exports.testBadReport13 = function(test){
+	var r = new Report(creds.username, creds.sharedSecret, 'sanJose', {log: false, version: 1.3}),
 			reportData =	{
 					reportDescription: {
 						reportSuiteID: creds.reportSuiteId,
@@ -45,6 +45,29 @@ module.exports.testBadReport = function(test){
 			// we don't want this request to be successful.  It it's get's here
 			// we haven't done our error handling correctly;
 			test.ok(false, "Status: "+data.status + "\nMessage: "+data.statusMsg);
+		}
+		test.done();
+	});
+}
+
+module.exports.testGoodReport14 = function(test){
+	var r = new Report(creds.username, creds.sharedSecret, 'sanJose', {log: false, version: 1.4}),
+			reportData =	{
+				reportDescription: {
+					reportSuiteID: creds.reportSuiteId,
+					dateFrom:"2012-01-01",
+					dateTo:"2012-12-31",
+					metrics:[{ id: "pageviews" }],
+					"validate":"true"
+				}
+			};
+
+	r.request('Report.Queue', reportData, function(err, data){
+		test.expect(1);
+		if(err){
+			test.ok(false, err.message);
+		}else{
+			test.ok(true, "Status: "+ data.status + "\nMessage: "+ data.statusMsg )
 		}
 		test.done();
 	});
