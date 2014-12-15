@@ -49,7 +49,7 @@ If the response is a string or a number as it is for "Company.GetTokenCount", th
 ## examples
     // Get all available metrics using the Client object
     var Client = require('nomniture').Client,
-        c = new Client(usernmae, sharedSecret, 'sanJose'),
+        c = new Client(username, sharedSecret, 'sanJose'),
         reportData = { "rsid_list": ["reportSuiteId"] }
 
     c.request('ReportSuite.GetAvailableMetrics', reportData, function(err, response){
