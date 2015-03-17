@@ -23,7 +23,8 @@
   "dependencies": {
 		"nodeunit": "latest",
 		"underscore" : "latest",
-		"xml2json" : "latest"
+		"xml2json" : "latest",
+		"request": "latest"
 	},
   "bundledDependencies": [
     "nodeunit",
